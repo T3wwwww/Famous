@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Famous Brand | ร้านเสื้อผ้า-รองเท้า</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 shadow-md sticky top-0 bg-white z-50">
+    <h1 class="text-2xl font-bold">Famous Brand</h1>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="#" class="hover:text-red-600">หน้าแรก</a>
+      <a href="shop.html" class="hover:text-red-600">สินค้า</a>
+      <a href="about.html" class="hover:text-red-600">เกี่ยวกับเรา</a>
+      <a href="login.html" class="hover:text-red-600">เข้าสู่ระบบ</a>
+    </nav>
+    <a href="cart.html" class="text-xl hover:text-red-600">
+      🛒
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f')] bg-cover bg-center">
+    <div class="bg-black/60 w-full h-full absolute top-0 left-0"></div>
+    <div class="relative z-10 text-white">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">สไตล์ใหม่ที่ไม่ซ้ำใคร</h2>
+      <p class="text-lg mb-6">ค้นหาความเป็นตัวคุณผ่านเสื้อผ้าและรองเท้า</p>
+      <a href="shop.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full">ช้อปตอนนี้</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="px-6 py-12">
+    <h3 class="text-3xl font-semibold text-center mb-8">สินค้าแนะนำ</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border rounded-xl overflow-hidden hover:shadow-xl transition">
+        <img src="https://images.unsplash.com/photo-1606813908651-04610050e9ee" class="w-full h-64 object-cover" />
+        <div class="p-4">
+          <h4 class="text-xl font-medium">รองเท้าแฟชั่นดำ</h4>
+          <p class="text-red-600 font-bold">฿1,290</p>
+        </div>
+      </div>
+      <div class="border rounded-xl overflow-hidden hover:shadow-xl transition">
+        <img src="https://images.unsplash.com/photo-1618354691373-9a5d4f6a7427" class="w-full h-64 object-cover" />
+        <div class="p-4">
+          <h4 class="text-xl font-medium">เสื้อยืดสีขาว</h4>
+          <p class="text-red-600 font-bold">฿490</p>
+        </div>
+      </div>
+      <div class="border rounded-xl overflow-hidden hover:shadow-xl transition">
+        <img src="https://images.unsplash.com/photo-1583001987287-4b5b4b9fa2cc" class="w-full h-64 object-cover" />
+        <div class="p-4">
+          <h4 class="text-xl font-medium">แจ็คเก็ตสปอร์ต</h4>
+          <p class="text-red-600 font-bold">฿1,990</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white px-6 py-8 mt-12">
+    <div class="text-center">
+      <p>&copy; 2025 Famous Brand. สงวนลิขสิทธิ์.</p>
+    </div>
+  </footer>
+</body>
+</html>

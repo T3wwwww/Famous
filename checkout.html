@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Famous Brand | ชำระเงิน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Prompt', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 shadow-md sticky top-0 bg-white z-50">
+    <h1 class="text-2xl font-bold">Famous Brand</h1>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="index.html" class="hover:text-red-600">หน้าแรก</a>
+      <a href="shop.html" class="hover:text-red-600">สินค้า</a>
+      <a href="about.html" class="hover:text-red-600">เกี่ยวกับเรา</a>
+      <a href="login.html" class="hover:text-red-600">เข้าสู่ระบบ</a>
+    </nav>
+    <a href="cart.html" class="text-xl hover:text-red-600">🛒</a>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-6">ชำระเงิน</h2>
+    <form id="checkoutForm" class="space-y-6">
+      <div>
+        <label for="name" class="block font-medium mb-1">ชื่อ-นามสกุล</label>
+        <input type="text" id="name" required placeholder="ชื่อของคุณ" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600" />
+      </div>
+      <div>
+        <label for="email" class="block font-medium mb-1">อีเมล</label>
+        <input type="email" id="email" required placeholder="your@email.com" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600" />
+      </div>
+      <div>
+        <label for="address" class="block font-medium mb-1">ที่อยู่สำหรับจัดส่ง</label>
+        <textarea id="address" required rows="3" placeholder="บ้านเลขที่ ซอย ถนน แขวง เขต จังหวัด รหัสไปรษณีย์" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600"></textarea>
+      </div>
+      <div>
+        <label for="payment" class="block font-medium mb-1">ช่องทางชำระเงิน</label>
+        <select id="payment" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-600">
+          <option value="">เลือกช่องทาง</option>
+          <option value="cod">เก็บเงินปลายทาง</option>
+          <option value="bank">โอนผ่านบัญชีธนาคาร</option>
+          <option value="promptpay">พร้อมเพย์</option>
+        </select>
+      </div>
+      <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold transition w-full">ยืนยันการสั่งซื้อ</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const address = this.address.value.trim();
+      const payment = this.payment.value;
+
+      if (!name || !email || !address || !payment) {
+        alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+        return;
+      }
+
+      // ตัวอย่าง: ส่งข้อมูลไป backend หรือเก็บ localStorage ได้
+      alert('สั่งซื้อเรียบร้อย ขอบคุณที่ใช้บริการ!');
+      localStorage.removeItem('cart'); // ล้างตะกร้าหลังซื้อ
+
+      // กลับไปหน้าแรก
+      window.location.href = 'index.html';
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white px-6 py-8 mt-12 text-center">
+    <p>&copy; 2025 Famous Brand. สงวนลิขสิทธิ์.</p>
+  </footer>
+</body>
+</html>

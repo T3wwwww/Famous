@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Famous Brand | รายละเอียดสินค้า</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 shadow-md sticky top-0 bg-white z-50">
+    <h1 class="text-2xl font-bold">Famous Brand</h1>
+    <nav class="space-x-4 hidden md:flex">
+      <a href="index.html" class="hover:text-red-600">หน้าแรก</a>
+      <a href="shop.html" class="hover:text-red-600">สินค้า</a>
+      <a href="about.html" class="hover:text-red-600">เกี่ยวกับเรา</a>
+      <a href="login.html" class="hover:text-red-600">เข้าสู่ระบบ</a>
+    </nav>
+    <a href="cart.html" class="text-xl hover:text-red-600">🛒</a>
+  </header>
+
+  <!-- Product Detail Section -->
+  <main class="max-w-6xl mx-auto p-6 md:flex md:space-x-12">
+    <!-- Product Images -->
+    <section class="md:w-1/2">
+      <img id="main-image" src="https://images.unsplash.com/photo-1606813908651-04610050e9ee" alt="รองเท้าผ้าใบสีดำ" class="w-full rounded-lg object-cover" />
+      <div class="flex mt-4 space-x-3">
+        <img src="https://images.unsplash.com/photo-1606813908651-04610050e9ee" alt="รองเท้าผ้าใบสีดำ" class="w-20 h-20 rounded-lg object-cover cursor-pointer border-2 border-red-600" onclick="changeImage(this.src)" />
+        <img src="https://images.unsplash.com/photo-1528701800489-18ca6a59bf77" alt="รองเท้าวิ่งสีแดง" class="w-20 h-20 rounded-lg object-cover cursor-pointer border border-gray-300" onclick="changeImage(this.src)" />
+        <img src="https://images.unsplash.com/photo-1583001987287-4b5b4b9fa2cc" alt="แจ็คเก็ตสปอร์ต" class="w-20 h-20 rounded-lg object-cover cursor-pointer border border-gray-300" onclick="changeImage(this.src)" />
+      </div>
+    </section>
+
+    <!-- Product Info -->
+    <section class="md:w-1/2 mt-6 md:mt-0">
+      <h1 id="product-name" class="text-3xl font-bold mb-4">รองเท้าผ้าใบสีดำ</h1>
+      <p id="product-price" class="text-red-600 text-2xl font-extrabold mb-6">฿1,290</p>
+      <p class="mb-6 text-gray-700 leading-relaxed">
+        รองเท้าผ้าใบสีดำสไตล์มินิมอล เหมาะสำหรับทุกโอกาส ทนทานและใส่สบายตลอดวัน ผลิตจากวัสดุคุณภาพสูง
+      </p>
+
+      <!-- Quantity selector -->
+      <div class="flex items-center mb-6">
+        <label for="quantity" class="mr-4 font-medium">จำนวน:</label>
+        <input type="number" id="quantity" min="1" value="1" class="w-16 border rounded px-2 py-1" />
+      </div>
+
+      <!-- Add to cart button -->
+      <button id="add-to-cart" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold transition">
+        เพิ่มใส่ตะกร้า
+      </button>
+    </section>
+  </main>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById('main-image').src = src;
+      // Update border style on thumbnails
+      document.querySelectorAll('section img').forEach(img => {
+        img.classList.remove('border-2', 'border-red-600');
+        img.classList.add('border', 'border-gray-300');
+      });
+      event.target.classList.remove('border', 'border-gray-300');
+      event.target.classList.add('border-2', 'border-red-600');
+    }
+
+    // ตัวอย่างเพิ่มสินค้าใส่ตะกร้า (เก็บข้อมูลใน localStorage)
+    document.getElementById('add-to-cart').addEventListener('click', () => {
+      const product = {
+        id: 1,
+        name: document.getElementById('product-name').textContent,
+        price: parseInt(document.getElementById('product-price').textContent.replace(/[^\d]/g, '')),
+        quantity: parseInt(document.getElementById('quantity').value),
+        img: document.getElementById('main-image').src,
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      // ถ้าสินค้าอยู่แล้ว เพิ่มจำนวน
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.quantity += product.quantity;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('เพิ่มสินค้าในตะกร้าเรียบร้อยแล้ว!');
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white px-6 py-8 mt-12 text-center">
+    <p>&copy; 2025 Famous Brand. สงวนลิขสิทธิ์.</p>
+  </footer>
+</body>
+</html>
