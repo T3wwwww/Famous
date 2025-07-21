@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - จัดการรหัส</title>
+</head>
+<body>
+  <h2>Admin: จัดการรหัส</h2>
+  <input type="text" id="code" placeholder="รหัส">
+  <input type="number" id="price" placeholder="ราคา">
+  <button onclick="addCode()">เพิ่มรหัส</button>
+  <div id="all-codes"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
