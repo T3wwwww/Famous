@@ -1,4 +1,3 @@
-/* สไตล์พื้นฐานสำหรับทุกหน้า */
 body {
   font-family: "Prompt", sans-serif;
   background-color: #111;
